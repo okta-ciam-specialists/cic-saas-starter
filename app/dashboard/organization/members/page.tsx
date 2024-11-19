@@ -8,6 +8,8 @@ import { MembersList } from "./members-list"
 
 export default async function Members() {
   const session = await appClient.getSession()
+
+
   const { data: members } = await managementClient.organizations.getMembers({
     id: session!.user.org_id,
     fields: ["user_id", "name", "email", "picture", "roles"].join(","),
